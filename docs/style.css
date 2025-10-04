@@ -2,7 +2,7 @@
   color-scheme: light only;
   --text: light-dark(#222222, #e7eae1);
   --background: light-dark(#f6f6f6, #0e101b);
-  --link-highlight:  light-dark(#20805b, #eacc72);
+  --link-highlight: light-dark(#20805b, #eacc72);
 }
 
 html {
@@ -239,17 +239,30 @@ footer > .menu:focus-within > .head {
   display: none;
 }
 
-
 html.filter {
   --text: light-dark(black, white);
   --background: light-dark(white, black);
-  --link-highlight:  light-dark(mediumseagreen, #eacc72);
+  --link-highlight: light-dark(mediumseagreen, #eacc72);
 }
-html.filter > body :is(main > article :is(.article-header, .article-body > :is(p, ul, ol, blockquote)), footer) {
+html.filter
+  > body
+  :is(
+    main
+      > article
+      :is(.article-header, .article-body > :is(p, ul, ol, blockquote)),
+    footer
+  ) {
   background-color: var(--background);
   filter: url("#posterize-light");
 }
-html.filter.dark > body :is(main > article :is(.article-header, .article-body > :is(p, ul, ol, blockquote)), footer) {
+html.filter.dark
+  > body
+  :is(
+    main
+      > article
+      :is(.article-header, .article-body > :is(p, ul, ol, blockquote)),
+    footer
+  ) {
   background-color: var(--background);
   filter: url("#posterize-dark");
 }
@@ -276,10 +289,24 @@ html.filter.dark > body :is(main > article :is(.article-header, .article-body > 
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  html.filter > body :is(main > article :is(.article-header, .article-body > :is(p, ul, ol, blockquote)), footer) {
+  html.filter
+    > body
+    :is(
+      main
+        > article
+        :is(.article-header, .article-body > :is(p, ul, ol, blockquote)),
+      footer
+    ) {
     filter: url("#prefilter-hidpi") url("#posterize-light");
   }
-  html.filter.dark > body :is(main > article :is(.article-header, .article-body > :is(p, ul, ol, blockquote)), footer) {
+  html.filter.dark
+    > body
+    :is(
+      main
+        > article
+        :is(.article-header, .article-body > :is(p, ul, ol, blockquote)),
+      footer
+    ) {
     filter: url("#prefilter-hidpi") url("#posterize-dark");
   }
 }

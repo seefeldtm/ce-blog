@@ -28,7 +28,10 @@ function darkThemeSetup() {
     setting = newSetting;
     localStorage.setItem("dark-theme", JSON.stringify(setting));
     document.documentElement.classList.toggle("dark", setting);
-    document.documentElement.style.setProperty("color-scheme", setting ? "dark only" : "light only");
+    document.documentElement.style.setProperty(
+      "color-scheme",
+      setting ? "dark only" : "light only",
+    );
   }
   setDarkTheme(setting);
   return [setting, setDarkTheme];
