@@ -1,0 +1,12 @@
+#!/bin/sh
+set -eu
+
+# get the list of files to be committed and pipe it to the history command (gen/history.ts)
+git diff --name-only --cached | deno task history -
+# add the updated history file to this commit
+git add gen/history
+
+# build the site
+deno task build
+# add the site output to the commit
+git add docs

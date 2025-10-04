@@ -1,0 +1,25 @@
+{
+  "imports": {
+    "@b-fuze/deno-dom": "jsr:@b-fuze/deno-dom@^0.1.52",
+    "@std/async": "jsr:@std/async@^1.0.14",
+    "@std/front-matter": "jsr:@std/front-matter@^1.0.9",
+    "@std/fs": "jsr:@std/fs@^1.0.19",
+    "@std/http": "jsr:@std/http@^1.0.20",
+    "marked": "npm:marked@^16.0.0",
+    "marked-smartypants-lite": "npm:marked-smartypants-lite@^1.0.3"
+  },
+  "tasks": {
+    "build": {
+      "description": "build the site in the docs directory",
+      "command": "deno run --allow-read --allow-write --unstable-temporal gen/build.ts && deno fmt docs"
+    },
+    "dev": {
+      "description": "run the development server on localhost:8000",
+      "command": "deno run --watch-hmr --allow-net --allow-read --allow-write --unstable-temporal gen/dev.ts"
+    },
+    "history": {
+      "description": "regenerate the history file",
+      "command": "deno run --allow-read --allow-write --unstable-temporal gen/history.ts"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Categoric Enclosure</title>
+    <meta charset="utf-8" />
+    <meta content="#000000" name="theme-color" />
+    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
+    <!-- <link href="/feed.xml" rel="alternate" title="RSS" type="application/rss+xml" /> -->
+    <link href="./favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="./style.css" rel="stylesheet" type="text/css" />
+    <script type="module" src="opts.js"></script>
+  </head>
+  <body tabindex="-1">
+    <header>
+      <a href="."><div title="Categoric Enclosure" class="logo"></div></a>
+    </header>
+    <main>
+    </main>
+    <footer>
+      <div class="copyright">
+        © Year <a href=".">categoric enclosure</a> author. built by <a href="https://gome.page/">gome</a>.
+      </div>
+    </footer>
+  </body>
+  <svg height="0" xmlns="http://www.w3.org/2000/svg">
+    <filter id="prefilter-hidpi">
+      <fegaussianblur stddeviation="0.5" ></fegaussianblur>
+    </filter>
+    <filter id="posterize-light">
+      <feComponentTransfer>
+        <feFuncR type="discrete" tableValues="0 0.1 0.15 1"></feFuncR>
+        <feFuncG type="discrete" tableValues="0 0.1 0.15 1"></feFuncG>
+        <feFuncB type="discrete" tableValues="0 0.1 0.15 1"></feFuncB>
+      </feComponentTransfer>
+    </filter>
+    <filter id="posterize-dark">
+      <feComponentTransfer>
+        <feFuncR type="discrete" tableValues="0 0.25 0.75 1"></feFuncR>
+        <feFuncG type="discrete" tableValues="0 0.25 0.75 1"></feFuncG>
+        <feFuncB type="discrete" tableValues="0 0.25 0.75 1"></feFuncB>
+      </feComponentTransfer>
+    </filter>
+    <filter id="dither" color-interpolation-filters="sRGB" x="0" y="0" width="100%" height="100%">
+      <feflood flood-color="var(--background)" result="white"></feflood>
+      <feflood flood-color="#000000" flood-opacity="0.50" result="halfblack"></feflood>
+      <feblend mode="overlay" in="white" in2="SourceGraphic" result="blend1" ></feblend>
+      <feblend mode="normal" in="blend1" in2="halfblack" result="blend2" ></feblend>
+      <feimage class="ditherImage" href="dither.png" x="0" y="0" width="8" height="8" crossorigin="anonymous" result="ditherImage"></feimage>
+      <fetile x="0" y="0" in="ditherImage" result="tile"></fetile>
+      <feblend mode="overlay" in="blend2" in2="tile"></feblend>
+      <fecomponenttransfer>
+        <fefuncr type="discrete" tablevalues="0 1"></fefuncr>
+        <fefuncg type="discrete" tablevalues="0 1"></fefuncg>
+        <fefuncb type="discrete" tablevalues="0 1"></fefuncb>
+      </fecomponenttransfer>
+    </filter>
+  </svg>
+</html>

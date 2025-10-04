@@ -1,0 +1,285 @@
+:root {
+  color-scheme: light only;
+  --text: light-dark(#222222, #e7eae1);
+  --background: light-dark(#f6f6f6, #0e101b);
+  --link-highlight:  light-dark(#20805b, #eacc72);
+}
+
+html {
+  color: var(--text);
+  background-color: var(--background);
+  line-height: 1.1;
+  font-size: 14pt;
+  font-family: serif;
+}
+
+body {
+  margin: 0;
+  padding: 1rem;
+  width: calc(100% - 2rem);
+}
+
+h1, h2, h3 {
+  font-family: sans-serif;
+  font-weight: normal;
+  margin: 1.5rem 0 1rem 0;
+}
+
+h1 {
+  font-size: 22pt;
+}
+
+h2 {
+  font-size: 20pt;
+}
+
+h3 {
+  font-size: 18pt;
+}
+
+a {
+  --link-text-decoration: none;
+  color: var(--text);
+}
+a:hover {
+  color: var(--link-highlight);
+  text-decoration: var(--link-text-decoration);
+}
+a:not(:hover) {
+  text-decoration: var(--link-text-decoration);
+}
+:is(footer, p, ul, ol, figure):not(.semantic) a {
+  --link-text-decoration: underline;
+}
+
+header {
+  font-family: sans-serif;
+  margin: 0;
+  display: flex;
+}
+
+header > a {
+  width: 100%;
+}
+header > a > .logo {
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  background-size: 100% 400%;
+  background-image: url("logo/categoric_enclosure.webp");
+  aspect-ratio: 2819 / 284;
+  background-position-y: calc(var(--sprite-index) * 100% / 3);
+  --sprite-index: 0;
+}
+header > a:hover > .logo {
+  --sprite-index: 1;
+}
+html.dark header > a > .logo {
+  --sprite-index: 2;
+}
+html.dark header > a:hover > .logo {
+  --sprite-index: 3;
+}
+@media only screen and (max-width: 1200px) {
+  header > a > .logo {
+    background-image: url("logo/categor_enclos.webp");
+    aspect-ratio: 2097 / 284;
+  }
+}
+@media only screen and (max-width: 900px) {
+  header > a > .logo {
+    background-image: url("logo/categ_encl.webp");
+    aspect-ratio: 1448 / 284;
+  }
+}
+@media only screen and (max-width: 600px) {
+  header > a > .logo {
+    background-image: url("logo/cat_enc.webp");
+    aspect-ratio: 1008 / 284;
+  }
+}
+
+main {
+  margin: 0 0 1.5rem 0;
+}
+
+main > .current-thing {
+  margin-top: 1rem;
+}
+
+main > article {
+  width: 100%;
+  margin-top: 0.75rem;
+}
+
+main > article > .article-header {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 1.5rem;
+  margin: 0 0 1rem 0;
+}
+
+main > article > .article-header > h1 {
+  font-weight: normal;
+  font-size: 24pt;
+  margin: 0;
+  font-family: sans-serif;
+  justify-self: end;
+  text-align: right;
+  order: 2;
+  grid-column: 2;
+}
+
+main > article > .article-header > time {
+  font-weight: normal;
+  font-size: 24pt;
+  font-family: sans-serif;
+  order: 1;
+}
+
+main > article > .article-body {
+  text-align: justify;
+}
+
+main > article > .article-body > :is(p, ul, ol, blockquote) {
+  max-width: 64ch;
+}
+
+main > article > .article-body > :is(p, ul, ol, img, figure, blockquote) {
+  margin: 0 0 1rem 0;
+}
+
+main > article > .article-body > :is(ul, ol) {
+  padding-left: 1.25rem;
+}
+
+main > ul {
+  list-style: none;
+}
+
+main > article > .article-body > li {
+  margin-bottom: 0.4em;
+}
+
+main > article > .article-body > :is(img, figure) {
+  max-width: calc(100% - 64ch - 1rem);
+  float: right;
+  clear: right;
+}
+html.filter main > article > .article-body > :is(img, figure) {
+  filter: contrast(1.4) brightness(0.4) grayscale(1) url("#dither");
+}
+html.filter.dark main > article > .article-body > :is(img, figure) {
+  filter: brightness(1.5) grayscale(1) url("#dither");
+}
+
+footer {
+  font-size: 10pt;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-family: sans-serif;
+  gap: 1em;
+}
+
+footer > .menu {
+  user-select: none;
+  display: flex;
+  align-items: baseline;
+}
+
+footer > .menu > .head {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+footer > .menu > .head:hover {
+  color: var(--link-highlight);
+}
+
+footer > .menu > .body {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 2px 1em;
+}
+
+footer > .menu > .body > .option-group {
+  display: flex;
+  height: 1lh;
+  align-items: baseline;
+  gap: 0.5em;
+}
+
+footer > .menu > .body button {
+  border: none;
+  display: inline;
+  color: var(--text);
+  background: none;
+  border-spacing: 0;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  cursor: pointer;
+  font-size: inherit;
+  line-height: inherit;
+}
+footer > .menu > .body button:hover {
+  color: var(--link-highlight);
+}
+footer > .menu > .body button.selected {
+  text-decoration: underline;
+}
+
+footer > .menu:not(:focus-within) > .body {
+  display: none;
+}
+
+footer > .menu:focus-within > .head {
+  display: none;
+}
+
+
+html.filter {
+  --text: light-dark(black, white);
+  --background: light-dark(white, black);
+  --link-highlight:  light-dark(mediumseagreen, #eacc72);
+}
+html.filter > body :is(main > article :is(.article-header, .article-body > :is(p, ul, ol, blockquote)), footer) {
+  background-color: var(--background);
+  filter: url("#posterize-light");
+}
+html.filter.dark > body :is(main > article :is(.article-header, .article-body > :is(p, ul, ol, blockquote)), footer) {
+  background-color: var(--background);
+  filter: url("#posterize-dark");
+}
+
+@media only screen and (max-width: 540px) {
+  main > article > .article-header > h1 {
+    font-size: 20pt;
+  }
+  main > article > .article-header > time {
+    font-size: 20pt;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  main > article > .article-body > :is(img, figure) {
+    display: block;
+    max-width: calc(min(64ch, 100%));
+    position: relative;
+    left: calc(min(32ch, 50%));
+    transform: translateX(-50%);
+    float: none;
+    clear: none;
+  }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  html.filter > body :is(main > article :is(.article-header, .article-body > :is(p, ul, ol, blockquote)), footer) {
+    filter: url("#prefilter-hidpi") url("#posterize-light");
+  }
+  html.filter.dark > body :is(main > article :is(.article-header, .article-body > :is(p, ul, ol, blockquote)), footer) {
+    filter: url("#prefilter-hidpi") url("#posterize-dark");
+  }
+}
