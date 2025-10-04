@@ -30,10 +30,14 @@ async function updateHistoryFile() {
   for await (const name of filenames) {
     // only care about md/*.md files
     if (name.startsWith(MD_DIR) && name.endsWith(".md")) {
-      const info = await Deno.stat(name);
-      if (info.mtime) {
-        // substring(3) cuts off the folder name
-        file_mtimes[name.substring(MD_DIR.length)] = info.mtime.toTemporalInstant();
+      try {
+        const info = await Deno.stat(name);
+        if (info.mtime) {
+          // substring(3) cuts off the folder name
+          file_mtimes[name.substring(MD_DIR.length)] = info.mtime.toTemporalInstant();
+        }
+      } catch {
+        console.warn("file removed: " + name);
       }
     }
   }

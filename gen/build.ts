@@ -87,6 +87,7 @@ async function build() {
     copyright.innerHTML = copyright.innerHTML.replace("Year", new Date().getFullYear().toString());
   }
   const main = html_template.querySelector("main")!;
+  main.classList.add("all-text");
   // {
   //   const thing = html_template.createElement("div");
   //   thing.classList.add("current-thing");

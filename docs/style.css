@@ -247,6 +247,7 @@ html.filter {
 html.filter
   > body
   :is(
+    main.all-text,
     main
       > article
       :is(.article-header, .article-body > :is(p, ul, ol, blockquote)),
@@ -258,6 +259,7 @@ html.filter
 html.filter.dark
   > body
   :is(
+    main.all-text,
     main
       > article
       :is(.article-header, .article-body > :is(p, ul, ol, blockquote)),
@@ -292,6 +294,7 @@ html.filter.dark
   html.filter
     > body
     :is(
+      main.all-text,
       main
         > article
         :is(.article-header, .article-body > :is(p, ul, ol, blockquote)),
@@ -302,6 +305,7 @@ html.filter.dark
   html.filter.dark
     > body
     :is(
+      main.all-text,
       main
         > article
         :is(.article-header, .article-body > :is(p, ul, ol, blockquote)),
