@@ -5,6 +5,8 @@ const MD_DIR = "md/";
 const HISTFILE = "gen/history";
 const SPLIT_CHAR = "\t";
 
+const comment_regex = /^#\s*/;
+
 async function updateHistoryFile() {
   const filenames = (async function *() {
     if (Deno.args[0] === "-") {
@@ -45,8 +47,9 @@ async function updateHistoryFile() {
   (await Deno.open(HISTFILE, { create: true, write: true })).close();
   const history_contents = await loadText(HISTFILE);
 
-  for (const line of history_contents.split("\n")) {
+  for (let line of history_contents.split("\n")) {
     if (line.length > 0) {
+      line = line.replace(comment_regex, ""); // uncomment commented lines, we want them to prevent additional modification times from being added if applicable
       const index = line.indexOf(SPLIT_CHAR);
       const time = line.substring(0, index);
       const filename = line.substring(index + 1);
@@ -68,11 +71,15 @@ async function collapseHistoryFile() {
 
   for (const line of history_contents.split("\n")) {
     if (line.length > 0) {
-      const index = line.indexOf(SPLIT_CHAR);
-      const time = line.substring(0, index);
-      const filename = line.substring(index + 1);
+      const commented = !!line.match(comment_regex);
+      const uncommented_line = line.replace(comment_regex, "");
+      const index = uncommented_line.indexOf(SPLIT_CHAR);
+      const time = uncommented_line.substring(0, index);
+      const filename = uncommented_line.substring(index + 1);
       const instant = Temporal.Instant.from(time);
-      parsed_lines.push({ filename, instant, id: `${instantToDateString(instant)} ${filename}`, line });
+      // all same-day lines for a given filename get the same ID, so all but the latest get removed
+      // all commented lines for a given filename get the same ID, so all but the latest get removed
+      parsed_lines.push({ filename, instant, id: commented ? `# ${filename}` : `${instantToDateString(instant)} ${filename}`, line });
     }
   }
 
@@ -96,7 +103,7 @@ async function loadHistory(files: string[]): Promise<HistoryEntry[]> {
   const history_contents = await loadText("gen/history");
   const history_map: { [key: string]: string[] } = {};
   for (const line of history_contents.split("\n")) {
-    if (line.length > 0) {
+    if (line.length > 0 && !line.match(comment_regex)) { // discard commented lines
       const index = line.indexOf(SPLIT_CHAR);
       const timestring = line.substring(0, index);
       const filename = line.substring(index + 1);

@@ -2,7 +2,7 @@
   color-scheme: light only;
   --text: light-dark(#222222, #e7eae1);
   --background: light-dark(#f6f6f6, #0e101b);
-  --link-highlight:  light-dark(#20805b, #eacc72);
+  --link-highlight: light-dark(#20805b, #eacc72);
 }
 
 html {
@@ -65,7 +65,7 @@ header > a > .logo {
   image-rendering: crisp-edges;
   image-rendering: pixelated;
   background-size: 100% 400%;
-  background-image: url("logo/categoric_enclosure.webp");
+  background-image: url("/logo/categoric_enclosure.webp");
   aspect-ratio: 2819 / 284;
   background-position-y: calc(var(--sprite-index) * 100% / 3);
   --sprite-index: 0;
@@ -81,19 +81,19 @@ html.dark header > a:hover > .logo {
 }
 @media only screen and (max-width: 1200px) {
   header > a > .logo {
-    background-image: url("logo/categor_enclos.webp");
+    background-image: url("/logo/categor_enclos.webp");
     aspect-ratio: 2097 / 284;
   }
 }
 @media only screen and (max-width: 900px) {
   header > a > .logo {
-    background-image: url("logo/categ_encl.webp");
+    background-image: url("/logo/categ_encl.webp");
     aspect-ratio: 1448 / 284;
   }
 }
 @media only screen and (max-width: 600px) {
   header > a > .logo {
-    background-image: url("logo/cat_enc.webp");
+    background-image: url("/logo/cat_enc.webp");
     aspect-ratio: 1008 / 284;
   }
 }
@@ -239,17 +239,16 @@ footer > .menu:focus-within > .head {
   display: none;
 }
 
-
 html.filter {
   --text: light-dark(black, white);
   --background: light-dark(white, black);
-  --link-highlight:  light-dark(mediumseagreen, #eacc72);
+  --link-highlight: light-dark(mediumseagreen, #eacc72);
 }
-html.filter > body :is(main.all-text, main > article :is(.article-header, .article-body > :is(p, ul, ol, blockquote)), footer) {
+html.filter > body :is(.all-text, main > article :is(.article-header, .article-body > :is(p, ul, ol, blockquote)), footer) {
   background-color: var(--background);
   filter: url("#posterize-light");
 }
-html.filter.dark > body :is(main.all-text, main > article :is(.article-header, .article-body > :is(p, ul, ol, blockquote)), footer) {
+html.filter.dark > body :is(.all-text, main > article :is(.article-header, .article-body > :is(p, ul, ol, blockquote)), footer) {
   background-color: var(--background);
   filter: url("#posterize-dark");
 }
@@ -276,10 +275,10 @@ html.filter.dark > body :is(main.all-text, main > article :is(.article-header, .
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  html.filter > body :is(main.all-text, main > article :is(.article-header, .article-body > :is(p, ul, ol, blockquote)), footer) {
+  html.filter > body :is(.all-text, main > article :is(.article-header, .article-body > :is(p, ul, ol, blockquote)), footer) {
     filter: url("#prefilter-hidpi") url("#posterize-light");
   }
-  html.filter.dark > body :is(main.all-text, main > article :is(.article-header, .article-body > :is(p, ul, ol, blockquote)), footer) {
+  html.filter.dark > body :is(.all-text, main > article :is(.article-header, .article-body > :is(p, ul, ol, blockquote)), footer) {
     filter: url("#prefilter-hidpi") url("#posterize-dark");
   }
 }

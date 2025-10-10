@@ -65,7 +65,7 @@ header > a > .logo {
   image-rendering: crisp-edges;
   image-rendering: pixelated;
   background-size: 100% 400%;
-  background-image: url("logo/categoric_enclosure.webp");
+  background-image: url("/logo/categoric_enclosure.webp");
   aspect-ratio: 2819 / 284;
   background-position-y: calc(var(--sprite-index) * 100% / 3);
   --sprite-index: 0;
@@ -81,19 +81,19 @@ html.dark header > a:hover > .logo {
 }
 @media only screen and (max-width: 1200px) {
   header > a > .logo {
-    background-image: url("logo/categor_enclos.webp");
+    background-image: url("/logo/categor_enclos.webp");
     aspect-ratio: 2097 / 284;
   }
 }
 @media only screen and (max-width: 900px) {
   header > a > .logo {
-    background-image: url("logo/categ_encl.webp");
+    background-image: url("/logo/categ_encl.webp");
     aspect-ratio: 1448 / 284;
   }
 }
 @media only screen and (max-width: 600px) {
   header > a > .logo {
-    background-image: url("logo/cat_enc.webp");
+    background-image: url("/logo/cat_enc.webp");
     aspect-ratio: 1008 / 284;
   }
 }
@@ -247,7 +247,7 @@ html.filter {
 html.filter
   > body
   :is(
-    main.all-text,
+    .all-text,
     main
       > article
       :is(.article-header, .article-body > :is(p, ul, ol, blockquote)),
@@ -259,7 +259,7 @@ html.filter
 html.filter.dark
   > body
   :is(
-    main.all-text,
+    .all-text,
     main
       > article
       :is(.article-header, .article-body > :is(p, ul, ol, blockquote)),
@@ -294,7 +294,7 @@ html.filter.dark
   html.filter
     > body
     :is(
-      main.all-text,
+      .all-text,
       main
         > article
         :is(.article-header, .article-body > :is(p, ul, ol, blockquote)),
@@ -305,7 +305,7 @@ html.filter.dark
   html.filter.dark
     > body
     :is(
-      main.all-text,
+      .all-text,
       main
         > article
         :is(.article-header, .article-body > :is(p, ul, ol, blockquote)),

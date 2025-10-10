@@ -11,9 +11,13 @@ const RELOAD_SNIPPET = "new EventSource('/event').addEventListener('change', () 
 let notify: (()=>void)|undefined;
 
 const on_changed = debounce(async () => {
-  await build();
+  try {
+    await build();
+  } catch (e) {
+    console.error(`Build failure: ${e}`);
+  }
   notify?.();
-}, 25);
+}, 200);
 
 (async function watch() {
   for await (const event of Deno.watchFs(["gen","md"])) {

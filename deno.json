@@ -20,6 +20,10 @@
     "history": {
       "description": "regenerate the history file",
       "command": "deno run --allow-read --allow-write --unstable-temporal gen/history.ts"
+    },
+    "playlist": {
+      "description": "generate a stub article from a Spotify playlist",
+      "command": "deno run --allow-read --allow-write --allow-net gen/playlist.ts"
     }
   }
 }

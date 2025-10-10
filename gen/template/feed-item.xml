@@ -1,0 +1,9 @@
+<item>
+  <title>{Title}</title>
+  <author>categoric enclosure author</author>
+  <pubDate>{Date}</pubDate>
+  <link>{URL}</link>
+  <guid>{URL}</guid>
+  <description>Post on categoric enclosure</description>
+  <content:encoded><![CDATA[{HTML Content}]]></content:encoded>
+</item>

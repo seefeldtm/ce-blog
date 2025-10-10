@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <atom:link href="https://domain.example/feed.xml" rel="self" type="application/rss+xml"></atom:link>
-    <title>Site Title Here</title>
-    <link>https://domain.example/</link>
+    <atom:link href="https://catenc.com/feed.xml" rel="self" type="application/rss+xml"></atom:link>
+    <title>Categoric Enclosure</title>
+    <link>https://catenc.com/</link>
     <description>A short site description</description>
     <language>en-us</language>
     <image>
-      <title>Site Title Here</title>
-      <link>https://domain.example/</link>
-      <url>https://domain.example/feed-icon.jpg</url>
+      <title>Categoric Enclosure</title>
+      <link>https://catenc.com/</link>
+      <url>https://catenc.com/feed-icon.jpg</url>
       <width>128</width>
       <height>128</height>
     </image>
